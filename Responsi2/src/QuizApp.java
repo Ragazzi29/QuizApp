@@ -15,6 +15,7 @@ import java.util.Scanner;
 public class QuizApp {
     
     static Scanner input = new Scanner(System.in);
+    static Scanner kata = new Scanner(System.in);
     static String[] Soal = new String[5];
     static String[][] Jawab = new String[5][4];
     static String[] Jawaban = new String[5];
@@ -87,7 +88,7 @@ public class QuizApp {
                 
             }
             System.out.print("Jawaban > ");
-            j[a] = input.nextLine();
+            j[a] = kata.nextLine();
             j[a] = j[a].toUpperCase();
             if(Jawaban[a].equals(j[a])){
                 f += 2;
@@ -96,10 +97,8 @@ public class QuizApp {
             }
         }
         
-        System.out.println("Skor anda : "+f);
+        System.out.println("\nSkor anda : "+f+"\n");
     }
-    
-    static void tambahSoalQuiz(){}
     
     public static void main(String[] args){
         do{

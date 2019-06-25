@@ -52,31 +52,43 @@ public class QuizApp {
         
         System.out.print("Masukkan jumlah soal > ");
         int jumlah_soal = input.nextInt();
-        int[] soalAcak = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        shuffleArray(soalAcak);
-
-        for (int a = 0; a < jumlah_soal; a++) {
-            int no_soal = a + 1;
-            System.out.println("Soal ke-" + no_soal);
-            System.out.println(Soal[soalAcak[a]]);
-            for (int b = 0; b < Jawab[0].length; b++) {
-                System.out.println(Jawab[soalAcak[a]][b]);
-            }
-            System.out.print("Jawaban > ");
-            j[soalAcak[a]] = kata.nextLine();
-            j[soalAcak[a]] = j[soalAcak[a]].toUpperCase();
-            if (Jawaban[soalAcak[a]].equals(j[soalAcak[a]])) {
-                f += 1;
-                x = x + (double) 10 / jumlah_soal;
-            } else {
-                f += 0;
-            }
-        }
-        if (jumlah_soal == f) {
-            System.out.println("\nSkor anda : 10");
+        if(jumlah_soal > 10){
+            System.out.println("\nMaksimal Soal Adalah 10");
         } else {
-            DecimalFormat desimal = new DecimalFormat("#.##");
-            System.out.println("\nSkor anda : " + desimal.format((double) x));
+            int[] soalAcak = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+            shuffleArray(soalAcak);
+
+            int benar = 0;
+            int salah = 0;
+
+            for (int a = 0; a < jumlah_soal; a++) {
+                int no_soal = a + 1;
+                System.out.println("Soal ke-" + no_soal);
+                System.out.println(Soal[soalAcak[a]]);
+                for (int b = 0; b < Jawab[0].length; b++) {
+                    System.out.println(Jawab[soalAcak[a]][b]);
+                }
+                System.out.print("Jawaban > ");
+                j[soalAcak[a]] = kata.nextLine();
+                j[soalAcak[a]] = j[soalAcak[a]].toUpperCase();
+                if (Jawaban[soalAcak[a]].equals(j[soalAcak[a]])) {
+                    f += 1;
+                    benar = benar + 1;
+                    x = x + (double) 10 / jumlah_soal;
+                } else {
+                    f += 0;
+                    salah = salah + 1;
+                }
+            }
+
+            System.out.println("\nJumlah jawaban benar : " + benar);
+            System.out.println("Jumlah jawaban salah : " + salah);
+            if (jumlah_soal == f) {
+                System.out.println("Skor anda : 10");
+            } else {
+                DecimalFormat desimal = new DecimalFormat("#.##");
+                System.out.println("Skor anda : " + desimal.format((double) x));
+            }
         }
     }
 

@@ -24,7 +24,8 @@ public class QuizApp {
     static boolean isRunning = true;
 
     static void showMenu() {
-        System.out.println("========== MENU ==========");
+        System.out.println("=========== QuizApp ==========");
+        System.out.println("  ========== MENU ==========");
         System.out.println("[1] Mulai Quiz");
         System.out.println("[2] Keluar");
         System.out.print("Pilih Menu > ");
@@ -63,7 +64,9 @@ public class QuizApp {
 
             for (int a = 0; a < jumlah_soal; a++) {
                 int no_soal = a + 1;
+                System.out.println("\n=========");
                 System.out.println("Soal ke-" + no_soal);
+                System.out.println("=========");
                 System.out.println(Soal[soalAcak[a]]);
                 for (int b = 0; b < Jawab[0].length; b++) {
                     System.out.println(Jawab[soalAcak[a]][b]);
